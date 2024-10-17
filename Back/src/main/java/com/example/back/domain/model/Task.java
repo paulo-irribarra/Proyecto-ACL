@@ -1,4 +1,4 @@
-package com.example.back.domain;
+package com.example.back.domain.model;
 
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;

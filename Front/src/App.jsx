@@ -14,8 +14,8 @@ function App() {
   }, []);
 
   return (
-    <Container className="mt-5">
-      <h1 className="text-center">Administrador de Tareas</h1>
+    <Container fluid className="d-flex flex-column justify-content-center align-items-center vh-100">
+      <h1 className="text-center mb-4">Administrador de Tareas</h1>
       <TaskTable tasks={tasks} />  {/* Pasamos las tareas como props */}
     </Container>
   );

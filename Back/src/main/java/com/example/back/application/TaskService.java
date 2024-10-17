@@ -1,7 +1,7 @@
 package com.example.back.application;
 
 import com.example.back.domain.port.TaskRepositoryPort;
-import com.example.back.domain.Task;
+import com.example.back.domain.model.Task;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
