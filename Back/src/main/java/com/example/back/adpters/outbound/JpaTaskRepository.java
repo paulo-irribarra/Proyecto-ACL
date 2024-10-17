@@ -1,4 +1,4 @@
-package com.example.back.adpters.outbounce;
+package com.example.back.adpters.outbound;
 
 import com.example.back.domain.port.TaskRepositoryPort;
 import com.example.back.domain.Task;
@@ -10,9 +10,8 @@ import java.util.List;
 @Repository
 public interface JpaTaskRepository extends JpaRepository<Task, Integer>, TaskRepositoryPort {
 
-
     default List<Task> findAllUsers() {
-        return findAll();  // Este método lo proporciona JpaRepository
+        return findAll();  
     }
 
 }

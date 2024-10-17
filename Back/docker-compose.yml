@@ -4,7 +4,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_DATABASE: "DEV"
+      MYSQL_DATABASE: ${DATABASE_NAME}
       MYSQL_USER: ${DB_USER_NAME}
       MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
