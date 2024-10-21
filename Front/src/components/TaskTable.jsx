@@ -3,22 +3,31 @@ import { Table } from 'react-bootstrap';  // Importa el componente Table de Reac
 
 const TaskTable = ({ tasks }) => {
   return (
-    <Table striped bordered hover className="mt-4">
+    <Table striped bordered hover className="mt-4 w-75">
+      <caption className="text-center">Lista de tareas actuales</caption>  {/* Título accesible para la tabla */}
       <thead>
         <tr>
           <th>ID</th>
-          <th>Completed</th>
-          <th>Description</th>
+          <th>Completado</th>
+          <th>Descripción</th>
         </tr>
       </thead>
       <tbody>
-        {tasks.map((task) => (
-          <tr key={task.id}>
-            <td>{task.id}</td>
-            <td>{task.completed ? 'Yes' : 'No'}</td>
-            <td>{task.description}</td>
+        {tasks.length > 0 ? (
+          tasks.map((task) => (
+            <tr key={task.id}>
+              <td>{task.id}</td>
+              <td>{task.completed ? 'Yes' : 'No'}</td>
+              <td>{task.description}</td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan="3" className="text-center">
+              No hay tareas disponibles
+            </td>
           </tr>
-        ))}
+        )}
       </tbody>
     </Table>
   );

@@ -1,8 +1,8 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  max-width: 1280px; /* Establece el ancho máximo */
+  margin: 0 auto;    /* Centra el contenido horizontalmente */
+  padding: 2rem;     /* Espaciado interno (padding) */
+  text-align: center; /* Centra el texto en todo el contenido */
 }
 
 .logo {
@@ -34,9 +34,15 @@
 }
 
 .card {
-  padding: 2em;
+  padding: 2em; /* Da espacio interno dentro de las tarjetas */
+  border: 1px solid #ddd; /* Añade un borde claro */
+  border-radius: 8px; /* Redondea los bordes */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Añade sombra */
+  margin-bottom: 1.5em; /* Añade margen inferior para separar las tarjetas */
 }
 
 .read-the-docs {
-  color: #888;
+  color: #888;  /* Color gris tenue */
+  font-style: italic; /* Estilo en cursiva */
+  margin-top: 1em; /* Margen superior para separarlo de otros elementos */
 }
