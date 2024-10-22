@@ -24,12 +24,7 @@ function App() {
         setError(error);
         setLoading(false);
       });
-  }, []);
-
-  const handleAddTask = () => {
-    console.log('Agregar tarea');
-    // Aquí iría la lógica para agregar una nueva tarea (ej. un formulario o llamada API)
-  };
+  }, []);  
 
   return (
     <Container fluid className="d-flex flex-column justify-content-center align-items-center vh-100">
