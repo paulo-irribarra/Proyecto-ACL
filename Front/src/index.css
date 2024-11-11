@@ -67,4 +67,12 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+
+
+  .full-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
 }

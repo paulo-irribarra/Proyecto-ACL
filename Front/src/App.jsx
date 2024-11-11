@@ -1,45 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import TaskTable from './components/TaskTable';
-import { Container, Spinner, Alert } from 'react-bootstrap';  // Agrega Spinner y Alert para la UX
+import React from 'react'; 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import NavigationBar from './components/Navbar';
+import Inventory from './pages/Inventory';
+import Dashboard from './pages/Dashboard';
+import FormularioProducto from './pages/FormularioProducto'; // Importa el componente
 
 function App() {
-  const [tasks, setTasks] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetch('http://localhost:8080/api/tasks')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch tasks');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setTasks(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error('Error fetching tasks:', error);
-        setError(error);
-        setLoading(false);
-      });
-  }, []);  
-
   return (
-    <Container fluid className="d-flex flex-column justify-content-center align-items-center vh-100">
-      <h1 className="text-center mb-4">Lista de tareas desde la base de datos</h1>
-      {loading && <Spinner animation="border" variant="primary" />}
-      {error && <Alert variant="danger">Error fetching tasks: {error.message}</Alert>}
-      {!loading && !error && <TaskTable tasks={tasks} />} 
-    </Container>
-
-
-
-    
-
-
-    
+    <Router>
+      <NavigationBar />
+      <div className="container-fluid mt-3 full-screen">
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/inventory" element={<Inventory />} />
+          <Route path="/formulario" element={<FormularioProducto />} /> {/* Nueva Ruta */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
