@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <NavigationBar />
-      <div className="container-fluid mt-3 full-screen">
+      <div className="min-h-screen">
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/inventory" element={<Inventory />} />
