@@ -11,6 +11,7 @@ const FormularioProducto = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Producto agregado:', { nombre, marca, descripcion, precio, imagen });
+    console.log('');
   };
 
   return (
