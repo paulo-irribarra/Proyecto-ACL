@@ -4,14 +4,39 @@ import { Plus } from 'lucide-react';
 const FormularioProducto = () => {
   const [nombre, setNombre] = useState('');
   const [marca, setMarca] = useState(''); // Añadido estado para marca
-  const [descripcion, setDescripcion] = useState('');
-  const [precio, setPrecio] = useState('');
-  const [imagen, setImagen] = useState(null);
+  const [descripcion, setDescripcion] = useState('');  
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Producto agregado:', { nombre, marca, descripcion, precio, imagen });
-    console.log('');
+
+    const productData = {
+      nombre: nombre,
+      marca: marca,
+      descripcion: descripcion
+    };
+
+    try {
+      const response = await fetch('http://localhost:8080/api/products', { // Asegúrate de reemplazar con tu URL del endpoint
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(productData),
+      });
+
+      if (response.ok) {
+        alert("Producto agregado con éxito");
+        // Puedes limpiar el formulario o actualizar la interfaz según sea necesario
+        setNombre('');
+        setMarca('');
+        setDescripcion('');
+      } else {
+        alert("Error al agregar el producto");
+      }
+    } catch (error) {
+      console.error("Error en la solicitud:", error);
+      alert("Error en la conexión con el servidor");
+    }
   };
 
   return (
